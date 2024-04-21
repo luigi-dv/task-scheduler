@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Task Scheduler Application
 
-## Getting Started
+Welcome to our Task Scheduler Application! This robust tool is crafted with TypeScript, React, and Next.js to empower users in efficiently managing their tasks, setting deadlines, and staying organized.
 
-First, run the development server:
+## Features 🚀
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **User Authentication:** Seamlessly sign in using either email 📧 or GitHub credentials.
+- **Task Management:** Effortlessly add ➕, edit ✏️, and delete 🗑️ tasks as needed.
+- **Task Scheduling:** Set deadlines ⏰ for tasks and conveniently visualize them in a calendar 📅 format.
+- **Priority Queue:** Tasks are intelligently organized within a priority queue ⚡ for streamlined management.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Efficient Task Addition
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Adding tasks is a breeze with our intuitive interface. Simply click on the "Add Task" button and fill in the details. Whether it's a quick reminder or a comprehensive project, our application accommodates tasks of all sizes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Priority Queue Efficiency
 
-## Learn More
+Our priority queue ensures that urgent tasks are always front and center, allowing you to focus on what matters most. Tasks are dynamically sorted based on priority, ensuring that critical deadlines are met without delay.
 
-To learn more about Next.js, take a look at the following resources:
+## Getting Started 🚀
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To kickstart your journey with our Task Scheduler Application, follow these simple steps to get a local instance up and running for development and testing purposes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Prerequisites
 
-## Deploy on Vercel
+Before diving in, ensure you have the following prerequisites installed on your machine:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Node.js
+- npm
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/luigi-dv/task-scheduler-ts.git"
+   ```
+
+2. **Install dependencies and generate Prisma client:**
+
+   ```bash
+     npm install && npx prisma generate
+   ```
+
+3. **Start the development server:**
+
+   ```bash
+     npm run dev
+   ```
+
+## Built With 🛠️
+
+Our Task Scheduler Application is built with the following technologies:
+
+- TypeScript 📝
+- React ⚛️
+- Next.js 🚀
+- Prisma 🛢️
+
+## Contributing 🤝
+
+We welcome contributions to enhance our Task Scheduler Application! Please refer to CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
+
+## License 📜
+
+This project is licensed under the MIT License. For more information, see the LICENSE.md file. Feel free to explore, modify, and share!
