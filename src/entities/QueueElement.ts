@@ -1,3 +1,3 @@
 interface QueueElement<T> {
-    priority: number;
+  priority: number;
 }

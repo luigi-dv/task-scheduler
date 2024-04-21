@@ -16,6 +16,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   tasks         Task[]
+  userConfigs    UserConfig[]
   // Optional for WebAuthn support
   Authenticator Authenticator[]
 
@@ -90,4 +91,16 @@ model Task {
   deadline    DateTime
 
   user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// User Configuration: User specific configuration
+model UserConfig {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId String   @db.ObjectId
+  timezone String
+  activeStartHour Int
+  activeEndHour Int
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([userId])
 }

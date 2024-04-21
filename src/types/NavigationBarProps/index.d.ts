@@ -1,5 +1,5 @@
-import {User} from "@prisma/client";
+import { User } from "next-auth";
 
 type NavigationBarProps = {
-    user: User | null;
-}
+  user: User | undefined;
+};

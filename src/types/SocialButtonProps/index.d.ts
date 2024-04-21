@@ -1,5 +1,5 @@
-import React, {ButtonHTMLAttributes} from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
 type SocialButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    children: React.ReactNode;
-}
+  children: React.ReactNode;
+};

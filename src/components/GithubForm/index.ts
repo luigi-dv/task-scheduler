@@ -1,1 +1,1 @@
-export { GithubForm } from "./GithubForm"
+export { GithubForm } from "./GithubForm";
