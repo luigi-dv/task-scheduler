@@ -83,7 +83,7 @@ model Authenticator {
 
 // Task Entity: A task that needs to be done
 model Task {
-  id          String  @id @default(cuid()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   userId      String  @db.ObjectId
   title       String
   description String

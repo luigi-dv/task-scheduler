@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { Menu, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
@@ -8,23 +8,24 @@ import Avatar from "boring-avatars";
 
 import { classNames } from "@/utilities/cn";
 import moment from "moment";
-import { Task } from "@/entities/Task";
+import { Task } from "@prisma/client";
 import { BorderEmptyState } from "@/components/BorderEmptyState";
 
 import { PriorityQueue } from "@/entities/PriorityQueue";
 import { useCalendar } from "@/components/SideBySideTaskCalendar/hooks/useCalendar";
+import { v4 as uuidv4 } from "uuid";
+import { TaskDTS } from "@/entities/dts/TaskDTS";
 
 type SideBySideTaskCalendarProps = {
   tasks: Task[];
-  taskName: string;
+  taskTitle: string;
   taskDescription: string;
-  dueDate: Date | null;
-  setDueDate: (date: Date) => void;
+  deadline: Date;
+  setDeadline: (date: Date) => void;
 };
 
 export const SideBySideTaskCalendar = (props: SideBySideTaskCalendarProps) => {
-  const { tasks, taskName, taskDescription, dueDate, setDueDate } = props;
-
+  const { tasks, taskTitle, taskDescription, deadline, setDeadline } = props;
   const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 
   const {
@@ -37,7 +38,7 @@ export const SideBySideTaskCalendar = (props: SideBySideTaskCalendarProps) => {
     handleDayClick,
     handleNextMonth,
     handlePrevMonth,
-  } = useCalendar(tasks, taskName, taskDescription);
+  } = useCalendar(tasks, taskTitle, taskDescription);
 
   /**
    * Gets the priority queue of tasks.
@@ -144,9 +145,9 @@ export const SideBySideTaskCalendar = (props: SideBySideTaskCalendarProps) => {
           {todaysTasks.length === 0 && (
             <BorderEmptyState title="No tasks with this deadline" />
           )}
-          {getTasksFromPriorityQueue(getPriorityQueue()).map((task) => (
+          {todaysTasks.map((task) => (
             <li
-              key={task?.id}
+              key={task?.title}
               className="group flex items-center space-x-4 rounded-xl py-2 px-4 focus-within:bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 dark:focus-within:bg-gray-800"
             >
               <Avatar
@@ -234,7 +235,7 @@ export const SideBySideTaskCalendar = (props: SideBySideTaskCalendarProps) => {
         <button
           type="button"
           onClick={handleSetDateClick}
-          disabled={!taskName}
+          disabled={!taskTitle}
           className="disabled:opacity-50 disabled:cursor-not-allowed w-full mt-4 bg-white dark:bg-zinc-900 py-2 px-4 border border-gray-300 dark:border-zinc-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
         >
           {buttonTitle}

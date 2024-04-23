@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
-import { Task } from "@/entities/Task";
+import { Task } from "@prisma/client";
 import moment from "moment/moment";
 import { Day } from "@/entities/Day";
 import { generateDaysService } from "@/components/SideBySideTaskCalendar/services/generateDaysService";
 import { handleInteractionService } from "@/components/SideBySideTaskCalendar/services/handleInteractionService";
 
+import { TaskDTS } from "@/entities/dts/TaskDTS";
+import { UUID } from "crypto";
+import { v4 as uuidv4 } from "uuid";
+
 /**
  * The useCalendar hook manages the state of the calendar component.
  * @param tasks
- * @param newTaskName
+ * @param newTaskTitle
  * @param newTaskDescription
  */
 export const useCalendar = (
   tasks: Task[],
-  newTaskName: string,
+  newTaskTitle: string,
   newTaskDescription: string,
 ) => {
+  const [currentTask, setCurrentTask] = useState<TaskDTS | null>(null);
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
   const [selectedDay, setSelectedDay] = useState<Date>(new Date());
   const [currentTaskDate, setCurrentTaskDate] = useState<Date | null>(null);
@@ -27,14 +32,13 @@ export const useCalendar = (
   /**
    * Handles the Set Date button click.
    *
-   * @param taskId
    */
   const handleSetDateClick = () => {
     if (buttonTitle === "Set Date") {
       setCurrentTaskDate(selectedDay);
       setButtonTitle("Remove Date");
     } else {
-      removeTask("0000-0000-0000-0000-0000-0000-0000-0000");
+      removeTask(currentTask?.id || "");
       setCurrentTaskDate(null);
       setButtonTitle("Set Date");
     }
@@ -52,13 +56,14 @@ export const useCalendar = (
    */
   useEffect(() => {
     if (currentTaskDate) {
-      const newTask = new Task(
-        "0000-0000-0000-0000-0000-0000-0000-0000",
-        newTaskName,
+      const newTask = new TaskDTS(
+        newTaskTitle,
         newTaskDescription,
         0,
         currentTaskDate,
+        uuidv4(),
       );
+      setCurrentTask(newTask);
       setTodaysTasks((tasks) => [...tasks, newTask]);
     }
   }, [currentTaskDate]);
@@ -70,6 +75,7 @@ export const useCalendar = (
     handleInteractionService(currentMonth, setCurrentMonth, setSelectedDay);
 
   return {
+    currentTask,
     days,
     currentMonth,
     selectedDay,

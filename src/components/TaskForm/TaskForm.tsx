@@ -1,26 +1,34 @@
 "use client";
 
 import { SideBySideTaskCalendar } from "@/components/SideBySideTaskCalendar";
-import { Disclosure, Transition } from "@headlessui/react";
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
-import { classNames } from "@/utilities/cn";
 import Link from "next/link";
-import { useState } from "react";
 import {
   ChevronDoubleUpIcon,
   ChevronUpIcon,
   MinusIcon,
 } from "@heroicons/react/16/solid";
 
+import { useTaskForm } from "@/components/TaskForm/hooks/useTaskForm";
+
 export const TaskForm = () => {
-  const [taskName, setTaskName] = useState("");
-  const [taskPriority, setTaskPriority] = useState(1);
-  const [taskDescription, setTaskDescription] = useState("");
-  const [dueDate, setDueDate] = useState<Date | null>(null);
-  const [deadlineNotification, setDeadlineNotification] = useState(false);
+  const {
+    handleSubmit,
+    taskTitle,
+    settaskTitle,
+    taskPriority,
+    setTaskPriority,
+    taskDescription,
+    setTaskDescription,
+    deadline,
+    setDeadline,
+    deadlineNotification,
+  } = useTaskForm();
 
   return (
-    <form className="mt-12 space-y-8 divide-y divide-gray-200">
+    <form
+      onSubmit={handleSubmit}
+      className="mt-12 space-y-8 divide-y divide-gray-200"
+    >
       <div className="space-y-8 divide-y divide-gray-200">
         <div>
           <div>
@@ -37,7 +45,7 @@ export const TaskForm = () => {
             <div className="sm:col-span-4">
               <div>
                 <label
-                  htmlFor="task-name"
+                  htmlFor="title"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   Task name and Priority
@@ -60,11 +68,11 @@ export const TaskForm = () => {
                       </span>
                     </div>
                     <input
-                      value={taskName}
-                      onChange={(e) => setTaskName(e.target.value)}
+                      value={taskTitle}
+                      onChange={(e) => settaskTitle(e.target.value)}
                       type="text"
-                      name="task-name"
-                      id="task-name"
+                      name="title"
+                      id="title"
                       className="input pl-10 pr-20"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center">
@@ -72,8 +80,8 @@ export const TaskForm = () => {
                         Priority
                       </label>
                       <select
-                        id="task-priority"
-                        name="task-priority"
+                        id="priority"
+                        name="priority"
                         value={taskPriority}
                         onChange={(e) =>
                           setTaskPriority(Number(e.target.value))
@@ -93,15 +101,15 @@ export const TaskForm = () => {
 
             <div className="sm:col-span-6">
               <label
-                htmlFor="task-description"
+                htmlFor="description"
                 className="block text-sm font-medium text-gray-700 dark:text-gray-300"
               >
                 Task Description
               </label>
               <div className="mt-1">
                 <textarea
-                  id="task-description"
-                  name="task-description"
+                  id="description"
+                  name="description"
                   value={taskDescription}
                   onChange={(e) => setTaskDescription(e.target.value)}
                   rows={3}
@@ -133,10 +141,17 @@ export const TaskForm = () => {
             <div className="mt-4">
               <SideBySideTaskCalendar
                 tasks={[]}
-                taskName={taskName}
+                taskTitle={taskTitle}
                 taskDescription={taskDescription}
-                dueDate={dueDate}
-                setDueDate={setDueDate}
+                deadline={deadline}
+                setDeadline={setDeadline}
+              />
+              <input
+                type="date"
+                id="deadline"
+                name="deadline"
+                value={deadline.toISOString()}
+                hidden
               />
             </div>
           </div>
