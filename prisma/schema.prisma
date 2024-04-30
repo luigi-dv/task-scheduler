@@ -16,7 +16,11 @@ model User {
   accounts      Account[]
   sessions      Session[]
   tasks         Task[]
-  userConfigs    UserConfig[]
+  comments      Comment[]         @relation("comments")
+  createdAssignments Assignment[] @relation("createdAssignments")
+  assignments   Assignment[]      @relation("assignments")
+  userConfig    UserConfig?
+
   // Optional for WebAuthn support
   Authenticator Authenticator[]
 
@@ -83,7 +87,7 @@ model Authenticator {
 
 // Task Entity: A task that needs to be done
 model Task {
-  id          String  @id @default(cuid()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   userId      String  @db.ObjectId
   title       String
   description String
@@ -93,14 +97,55 @@ model Task {
   user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model Comment {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  type        String @default("comment")
+  userId      String @db.ObjectId
+  comment     String
+  date        DateTime
+
+  user        User @relation("comments", fields: [userId], references: [id])
+}
+
+model Assignment {
+  id                 String @id @default(auto()) @map("_id") @db.ObjectId
+  type               String @default("assignment")
+  assignedUserId     String @db.ObjectId
+  createdUserId      String @db.ObjectId
+  createdDate        DateTime
+
+  assignedUser       User @relation("assignments", fields: [assignedUserId], references: [id])
+  createdUser        User @relation("createdAssignments", fields: [createdUserId], references: [id])
+}
+
+model ActivityTags {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  type        String @default("tags")
+  userId      String @db.ObjectId
+
+  tags        Tag[]
+  date        DateTime
+}
+
+model Tag {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  type            String @default("tags")
+  title           String
+  date            DateTime
+  activityTagsId  String @db.ObjectId
+
+  activityTags ActivityTags @relation(fields: [activityTagsId], references: [id])
+}
+
+
+
 // User Configuration: User specific configuration
 model UserConfig {
-  id     String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId String   @db.ObjectId
-  timezone String
+  id              String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String  @db.ObjectId @unique
+  timezone        String
   activeStartHour Int
-  activeEndHour Int
+  activeEndHour   Int
 
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  @@unique([userId])
+  user   User @relation(fields: [userId], references: [id])
 }

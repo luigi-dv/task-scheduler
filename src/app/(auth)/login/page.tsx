@@ -6,13 +6,13 @@ const Login = () => {
   return (
     <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <LogoIcon className="mx-auto h-24 w-auto text-sky-600" />
+        <LogoIcon className="mx-auto h-40 w-auto text-emerald-600" />
         <h2 className="mt-6 text-center text-3xl font-light text-gray-900 dark:text-gray-100">
           Sign in to your account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
           Or{" "}
-          <span className="font-medium text-sky-600 hover:text-sky-500">
+          <span className="font-medium text-emerald-600 hover:text-emerald-500">
             start scheduling tasks for free
           </span>
         </p>

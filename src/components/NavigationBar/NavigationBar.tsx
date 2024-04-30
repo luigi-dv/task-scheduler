@@ -36,7 +36,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
               <div className="flex">
                 <div className="-ml-2 mr-2 flex items-center md:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 dark:text-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500 focus:bg-zinc-900 dark:bg-zinc-800 dark:hover:bg-zinc-800">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 dark:text-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500 focus:bg-zinc-900 dark:bg-zinc-800 dark:hover:bg-zinc-800">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -46,13 +46,13 @@ export const NavigationBar = (props: NavigationBarProps) => {
                   </Disclosure.Button>
                 </div>
                 <div className="flex-shrink-0 flex items-center">
-                  <LogoIcon className="text-sky-600 dark:text-sky-400 block lg:hidden h-16 w-auto" />
-                  <LogoIcon className="text-sky-600 dark:text-sky-400 hidden lg:block h-16 w-auto" />
+                  <LogoIcon className="text-emerald-600 dark:text-emerald-400 block lg:hidden h-20 w-auto" />
+                  <LogoIcon className="text-emerald-600 dark:text-emerald-400 hidden lg:block h-20 w-auto" />
                 </div>
                 <div className="hidden md:ml-6 md:flex md:space-x-8">
                   <Link
                     href={HOME_ROUTE}
-                    className="border-sky-500 text-gray-900 dark:text-gray-100 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                    className="border-emerald-500 text-gray-900 dark:text-gray-100 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                   >
                     Home
                   </Link>
@@ -68,7 +68,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                 <div className="flex-shrink-0">
                   <Link
                     href={NEW_TASK_ROUTE}
-                    className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-sky-600 shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+                    className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-emerald-500 shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                   >
                     <PlusIcon
                       className="-ml-1 mr-2 h-5 w-5"
@@ -80,7 +80,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                 <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
                   <button
                     type="button"
-                    className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+                    className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -89,7 +89,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">
                     <div>
-                      <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                      <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
                         <span className="sr-only">Open user menu</span>
                         {user?.image ? (
                           <Image
@@ -187,11 +187,11 @@ export const NavigationBar = (props: NavigationBarProps) => {
 
           <Disclosure.Panel className="md:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              {/* Current: "bg-sky-50 border-sky-500 text-sky-700", Default: "border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 hover:border-gray-300 dark:hover:text-gray-400" */}
+              {/* Current: "bg-emerald-50 border-emerald-500 text-emerald-700", Default: "border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 hover:border-gray-300 dark:hover:text-gray-400" */}
               <Disclosure.Button
                 as={Link}
                 href={HOME_ROUTE}
-                className="bg-sky-50 dark:bg-sky-900 border-sky-500 text-sky-700 dark:text-sky-100 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
+                className="bg-emerald-50 dark:bg-emerald-900 border-emerald-500 text-emerald-700 dark:text-emerald-100 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
               >
                 Home
               </Disclosure.Button>
@@ -252,7 +252,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                 </div>
                 <button
                   type="button"
-                  className="ml-auto flex-shrink-0 bg-white dark:bg-zinc-700 p-1 rounded-full text-gray-400 hover:text-gray-500 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+                  className="ml-auto flex-shrink-0 bg-white dark:bg-zinc-700 p-1 rounded-full text-gray-400 hover:text-gray-500 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
