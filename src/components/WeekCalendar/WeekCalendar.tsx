@@ -327,7 +327,7 @@ export const WeekCalendar = () => {
                   <span
                     className={classNames(
                       day.isToday
-                        ? "rounded-full bg-sky-600 font-semibold text-white"
+                        ? "rounded-full bg-emerald-500 font-semibold text-white"
                         : "text-gray-900 dark:text-gray-300",
                       "mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900 dark:text-gray-100",
                     )}
@@ -338,7 +338,7 @@ export const WeekCalendar = () => {
               ))}
             </div>
 
-            <div className="-mr-px hidden grid-cols-7 divide-x divide-gray-100 dark:divide-gray-800 border-r border-gray-100 text-sm leading-6 text-gray-500 sm:grid">
+            <div className="-mr-px hidden grid-cols-7 divide-x divide-gray-100 dark:divide-gray-800 border-r border-gray-100 dark:border-gray-700 text-sm leading-6 text-gray-500 sm:grid">
               <div className="col-end-1 w-14" />
               {daysInWeek.map((day, index) => (
                 <div

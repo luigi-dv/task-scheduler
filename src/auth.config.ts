@@ -1,7 +1,8 @@
 import GitHub from "@auth/core/providers/github";
 import Google from "@auth/core/providers/google";
-import { NextAuthConfig } from "next-auth";
 import Resend from "@auth/core/providers/resend";
+import { Session } from "next-auth";
+import { JWT } from "next-auth/jwt";
 
 export default {
   providers: [
@@ -11,4 +12,17 @@ export default {
       from: "no-reply@ldvloper.com",
     }),
   ],
-} satisfies NextAuthConfig;
+  callbacks: {
+    jwt({ token, user }: { token: JWT; user: any }) {
+      if (user) {
+        // User is available during sign-in
+        token.id = user.id;
+      }
+      return token;
+    },
+    session({ session, token }: { session: Session; token: JWT }) {
+      session.user.id = token.id as string;
+      return session;
+    },
+  },
+};

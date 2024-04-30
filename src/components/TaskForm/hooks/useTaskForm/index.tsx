@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { handleTaskFormSubmit } from "@/components/TaskForm/services/handleTaskFormSubmit";
-import { API_CREATE_TASK_ROUTE } from "@/routes";
+import { useRouter } from "next/navigation";
+import { TASK_INFORMATION_ROUTE } from "@/routes";
 
 /**
  * Hook to handle the task form
@@ -8,47 +9,61 @@ import { API_CREATE_TASK_ROUTE } from "@/routes";
  * @returns
  * - handleSubmit: function to handle the form submit
  * - taskTitle: the task name
- * - settaskTitle: function to set the task name
+ * - setTaskTitle: function to set the task name
  * - taskPriority: the task priority
  * - setTaskPriority: function to set the task priority
  * - taskDescription: the task description
  * - setTaskDescription: function to set the task description
  * - deadline: the task due date
  * - setDeadline: function to set the task due date
- * - deadlineNotification: the deadline notification
- * - setDeadlineNotification: function to set the deadline notification
+ * - emailNotification: the email notification
+ * - setEmailNotification: function to set the email notification
+ * - pushNotification: the push notification
+ * - setPushNotification: function to set the push notification
  */
 export const useTaskForm = () => {
-  const [taskTitle, settaskTitle] = useState("");
+  const [taskTitle, setTaskTitle] = useState("");
   const [taskPriority, setTaskPriority] = useState(1);
   const [taskDescription, setTaskDescription] = useState("");
   const [deadline, setDeadline] = useState<Date>(new Date());
-  const [deadlineNotification, setDeadlineNotification] = useState(false);
+
+  const [emailNotification, setEmailNotification] = useState<boolean>(false);
+  const [pushNotification, setPushNotification] = useState<string>("");
+  const router = useRouter();
 
   /**
    * Handle the task form submit
    */
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const result = handleTaskFormSubmit(
+    const result = await handleTaskFormSubmit(
       taskTitle,
       taskDescription,
       taskPriority,
       deadline,
     );
+
+    if (result.ok) {
+      const createdTask = await result.json();
+      router.push(TASK_INFORMATION_ROUTE.replace("[id]", createdTask.id));
+    } else {
+      alert("Error creating task");
+    }
   };
 
   return {
     handleSubmit,
     taskTitle,
-    settaskTitle,
+    setTaskTitle,
     taskPriority,
     setTaskPriority,
     taskDescription,
     setTaskDescription,
     deadline,
     setDeadline,
-    deadlineNotification,
-    setDeadlineNotification,
+    emailNotification,
+    setEmailNotification,
+    pushNotification,
+    setPushNotification,
   };
 };

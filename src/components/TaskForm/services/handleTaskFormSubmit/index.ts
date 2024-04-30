@@ -19,7 +19,7 @@ export const handleTaskFormSubmit = async (
   formData.append("priority", taskPriority.toString());
   formData.append("deadline", taskDeadline.toISOString());
 
-  await fetch(API_CREATE_TASK_ROUTE, {
+  return await fetch(API_CREATE_TASK_ROUTE, {
     method: "POST",
     body: formData,
   });
