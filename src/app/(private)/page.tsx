@@ -1,7 +1,11 @@
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Task Scheduler | Home",
+  description:
+    "Task Scheduler is a simple task management application that helps you stay organized.",
+};
+
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      Welcome to your new app!
-    </div>
-  );
+  return <h1> Home</h1>;
 }

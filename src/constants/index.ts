@@ -1,3 +1,7 @@
+/**
+ * @fileoverview This file contains all the constants used in the application.
+ */
+
 export const STATUS_CODES = {
   BAD_REQUEST: 400,
   UNAUTHORIZED: 401,

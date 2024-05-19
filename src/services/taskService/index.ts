@@ -2,7 +2,7 @@
 
 import { Task } from "@/entities/Task";
 import { prismaClient } from "@/lib/prisma";
-import { Session, User } from "next-auth";
+import { User } from "next-auth";
 
 /**
  * Create a new task
@@ -87,12 +87,12 @@ export const getTasks = async (
   });
 };
 
-export /**
+/**
  * Get a task by deadline
  * @param date The deadline
  * @param user
  */
-const getTaskByDeadline = async (date: Date, user: User) => {
+export const getTaskByDeadline = async (date: Date, user: User) => {
   return prismaClient.task.findMany({
     where: {
       deadline: date,

@@ -1,5 +1,5 @@
 import { User } from "next-auth";
 
-type NavigationBarProps = {
+type ProfileDropdownProps = {
   user?: User;
 };
