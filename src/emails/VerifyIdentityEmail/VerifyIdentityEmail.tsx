@@ -1,15 +1,13 @@
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Html,
-  Img,
-  Link,
-  Section,
-  Text,
-  Button,
-} from "@react-email/components";
+import { Head } from "@react-email/head";
+import { Body } from "@react-email/body";
+import { Button } from "@react-email/button";
+import { Text } from "@react-email/text";
+import { Section } from "@react-email/section";
+import { Link } from "@react-email/link";
+import { Heading } from "@react-email/heading";
+import { Container } from "@react-email/container";
+import { Html } from "@react-email/html";
+
 import * as React from "react";
 import { LogoIcon } from "@/lib/icons/LogoIcon";
 
@@ -17,10 +15,6 @@ interface VerifyIdentityEmailProps {
   url?: string;
   host?: string;
 }
-
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
 
 export const VerifyIdentityEmail = ({
   url,
@@ -30,12 +24,12 @@ export const VerifyIdentityEmail = ({
     <Head />
     <Body style={main}>
       <Container style={container}>
-        <Section style={logoContainer}>
-          <LogoIcon style={logo} />
+        <Section style={imageSection}>
+          <LogoIcon className="h-5 w-5 my-0 mx-auto" />
         </Section>
         <Text style={tertiary}>Verify Your Identity</Text>
         <Heading style={secondary}>
-          Click to the button below to log in to your account.
+          Click the button below to log in to your account.
         </Heading>
         <Section style={buttonContainer}>
           <Button href={url} style={button}>
@@ -74,8 +68,10 @@ const container = {
   padding: "68px 0 130px",
 };
 
-const logoContainer = {
-  textAlign: "center" as const,
+const imageSection = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 };
 
 const logo = {

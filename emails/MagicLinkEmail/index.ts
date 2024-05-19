@@ -1,1 +1,0 @@
-export { MagicLinkEmail } from "./MagicLinkEmail";

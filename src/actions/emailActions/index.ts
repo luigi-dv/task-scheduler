@@ -10,7 +10,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 interface Email {
   to: string[]; // An array of email addresses to which to send the email.
   subject: string; // The subject of the email.
-  react: React.ReactElement; // The body of the email as a React element.
+  react?: React.ReactElement; // The body of the email as a React element.
+  html?: string; // The body of the email as an HTML string.
+  text: string; // The body of the email as a plain text string.
 }
 
 export const sendEmail = async (payload: Email) => {

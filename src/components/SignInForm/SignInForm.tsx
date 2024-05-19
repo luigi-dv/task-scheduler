@@ -22,7 +22,7 @@ export const SignInForm = () => {
           Email
         </label>
         <input
-          type="text"
+          type="email"
           name="email"
           id="email"
           className="block w-full border-0 p-0 bg-transparent text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:ring-0 sm:text-sm"
