@@ -1,9 +1,15 @@
 import GitHub from "@auth/core/providers/github";
 import Google from "@auth/core/providers/google";
 import Resend from "@auth/core/providers/resend";
-import { Session } from "next-auth";
+import { NextAuthConfig, Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import { sendCustomVerificationRequest } from "@/lib/providers/EmailProvider/sendCustomVerificationRequest";
+import {
+  AUTH_ERROR_ROUTE,
+  AUTH_SIGN_IN_ROUTE,
+  AUTH_VERIFY_REQUEST_ROUTE,
+} from "@/routes";
+import Passkey from "@auth/core/providers/passkey";
 
 export default {
   providers: [
@@ -13,12 +19,10 @@ export default {
       server: process.env.AUTH_RESEND_SERVER,
       from: "no-reply@ldvloper.com",
       sendVerificationRequest({ identifier, url, provider, theme }) {
-        // Custom sendVerificationRequest function
         sendCustomVerificationRequest({
           identifier,
           url,
           provider,
-          theme,
         });
       },
     }),
@@ -36,4 +40,9 @@ export default {
       return session;
     },
   },
-};
+  pages: {
+    signIn: AUTH_SIGN_IN_ROUTE,
+    verifyRequest: AUTH_VERIFY_REQUEST_ROUTE,
+    error: AUTH_ERROR_ROUTE,
+  },
+} satisfies NextAuthConfig;

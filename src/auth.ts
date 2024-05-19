@@ -3,6 +3,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 
 import authConfig from "@/auth.config";
 import { prismaClient } from "@/lib/prisma";
+import { AUTH_SIGN_IN_ROUTE, AUTH_VERIFY_REQUEST_ROUTE } from "@/routes";
 
 /**
  * Entry point for the NextAuth.js authentication library.

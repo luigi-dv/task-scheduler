@@ -1,4 +1,5 @@
 import { signIn } from "@/auth";
+import { Button } from "@/components/ui/button";
 
 /**
  * A form that allows users to sign in with their email address with a Magic link.
@@ -13,33 +14,26 @@ export const SignInForm = () => {
       }}
       className="space-y-6"
     >
-      <div>
+      <div className="border border-gray-300 dark:border-gray-800 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-emerald-600 focus-within:border-emerald-600">
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          className="block text-xs font-medium text-gray-500 dark:text-gray-400"
         >
-          Email address
+          Email
         </label>
-
-        <div className="mt-1">
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            className="input"
-          />
-        </div>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          className="block w-full border-0 p-0 bg-transparent text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600 focus:ring-0 sm:text-sm"
+          placeholder="Enter your email"
+        />
       </div>
 
       <div>
-        <button
-          type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-500 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-        >
+        <Button type="submit" className="w-full">
           Sign in
-        </button>
+        </Button>
       </div>
     </form>
   );

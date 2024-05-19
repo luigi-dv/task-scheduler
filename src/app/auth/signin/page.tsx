@@ -1,8 +1,11 @@
 import { SignInForm } from "@/components/SignInForm";
 import { GithubForm } from "@/components/GithubForm";
 import { LogoIcon } from "@/lib/icons/LogoIcon";
+import { SignInFooter } from "@/components/SignInFooter";
+import { GoogleForm } from "@/components/GoogleForm/GoogleForm";
+import { PasskeyForm } from "@/components/PasskeyForm";
 
-const Login = () => {
+const Signin = () => {
   return (
     <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -19,29 +22,27 @@ const Login = () => {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white dark:bg-zinc-900 py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <SignInForm />
+        <div className="mt-6 grid grid-cols-1 gap-3 my-4">
+          <div>
+            <GithubForm />
+          </div>
+          <div>
+            <GoogleForm />
+          </div>
         </div>
-        <div className="mt-6">
+        <div className="mb-8">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300 dark:border-zinc-600" />
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-zinc-50 dark:bg-zinc-950 text-gray-500">
-                Or continue with
-              </span>
-            </div>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-3">
-            <div>
-              <GithubForm />
+              <div className="w-full border-t border-gray-300 dark:border-gray-800" />
             </div>
           </div>
         </div>
+        <div>
+          <SignInForm />
+        </div>
+        <SignInFooter />
       </div>
     </div>
   );
 };
-export default Login;
+export default Signin;

@@ -20,7 +20,7 @@ export default async function RootLayout({
   return (
     <>
       <NavigationBar user={session?.user} />
-      <div className="min-h-screen">{children}</div>
+      <div className="min-h-screen py-6">{children}</div>
       <Footer />
     </>
   );
