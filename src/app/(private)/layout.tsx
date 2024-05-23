@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { auth } from "@/auth";
 import React from "react";
-import { NavigationBar } from "@/components/NavigationBar";
-import { Footer } from "@/components/Footer/Footer";
+import { NavigationBar } from "@/components/common/NavigationBar";
+import { Footer } from "@/components/common/Footer";
 
 const metadata: Metadata = {
   title: "Task Scheduler | Ldvloper",

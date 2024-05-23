@@ -20,6 +20,7 @@ export const middleware = auth((req) => {
   ) {
     return NextResponse.redirect(new URL("/auth/signin", req.url));
   }
+  return NextResponse.next();
 });
 
 export const config = {
@@ -30,9 +31,12 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
+     * - privacy-policy (privacy policy page)
+     * - terms-of-service (terms of service page)
      */
     {
-      source: "/((?!api|_next/static|_next/image|favicon.ico).*)",
+      source:
+        "/((?!api|_next/static|_next/image|favicon.ico|privacy-policy|terms-of-service|pricing).*)",
       missing: [
         { type: "header", key: "next-router-prefetch" },
         { type: "header", key: "purpose", value: "prefetch" },
@@ -40,7 +44,8 @@ export const config = {
     },
 
     {
-      source: "/((?!api|_next/static|_next/image|favicon.ico).*)",
+      source:
+        "/((?!api|_next/static|_next/image|favicon.ico|privacy-policy|terms-of-service|pricing).*)",
       has: [
         { type: "header", key: "next-router-prefetch" },
         { type: "header", key: "purpose", value: "prefetch" },
@@ -48,7 +53,8 @@ export const config = {
     },
 
     {
-      source: "/((?!api|_next/static|_next/image|favicon.ico).*)",
+      source:
+        "/((?!api|_next/static|_next/image|favicon.ico|privacy-policy|terms-of-service|pricing).*)",
       has: [{ type: "header", key: "x-present" }],
       missing: [{ type: "header", key: "x-missing", value: "prefetch" }],
     },
