@@ -1,13 +1,13 @@
-import { SignInForm } from "@/components/SignInForm";
-import { GithubForm } from "@/components/GithubForm";
+import { SignInForm } from "@/components/auth/SignInForm";
+import { GithubForm } from "@/components/auth/GithubForm";
 import { LogoIcon } from "@/lib/icons/LogoIcon";
-import { SignInFooter } from "@/components/SignInFooter";
-import { GoogleForm } from "@/components/GoogleForm/GoogleForm";
-import { PasskeyForm } from "@/components/PasskeyForm";
+import { SignInFooter } from "@/components/auth/SignInFooter";
+import { GoogleForm } from "@/components/auth/GoogleForm/GoogleForm";
+import { PasskeyForm } from "@/components/auth/PasskeyForm";
 
 const Signin = () => {
   return (
-    <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-full flex flex-col justify-center py-12 px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <LogoIcon className="mx-auto h-40 w-auto text-emerald-600" />
         <h2 className="mt-6 text-center text-3xl font-light text-gray-900 dark:text-gray-100">
