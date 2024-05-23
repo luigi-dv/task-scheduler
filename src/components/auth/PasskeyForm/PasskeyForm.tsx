@@ -1,6 +1,6 @@
 "use client";
 
-import { SocialButton } from "@/components/SocialButton/SocialButton";
+import { SocialButton } from "@/components/common/SocialButton";
 import { signIn } from "next-auth/webauthn";
 
 /**
