@@ -26,7 +26,7 @@ import { ProfileDropdown } from "@/components/common/ProfileDropdown";
 export const NavigationBar = (props: NavigationBarProps) => {
   const { user } = props;
   return (
-    <Disclosure as="nav" className="bg-gray-50 dark:bg-zinc-900 shadow">
+    <Disclosure as="nav" className="bg-gray-50 dark:bg-gray-900 shadow">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +34,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
               <div className="flex">
                 <div className="-ml-2 mr-2 flex items-center md:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 dark:text-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500 focus:bg-zinc-900 dark:bg-zinc-800 dark:hover:bg-zinc-800">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 dark:text-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500 focus:bg-gray-900 dark:bg-gray-800 dark:hover:bg-gray-800">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -151,7 +151,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                 </div>
                 <button
                   type="button"
-                  className="ml-auto flex-shrink-0 bg-white dark:bg-zinc-700 p-1 rounded-full text-gray-400 hover:text-gray-500 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+                  className="ml-auto flex-shrink-0 bg-white dark:bg-gray-700 p-1 rounded-full text-gray-400 hover:text-gray-500 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />

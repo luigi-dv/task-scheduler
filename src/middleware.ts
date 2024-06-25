@@ -5,6 +5,7 @@ import {
   AUTH_SIGN_IN_ROUTE,
   AUTH_VERIFY_REQUEST_ROUTE,
 } from "@/routes";
+import { SETTINGS_ACCOUNT_ROUTE, SETTINGS_MAIN_ROUTE } from "@/routes/settings";
 
 /**
  * This is a middleware that checks if the user is authenticated.
@@ -19,6 +20,9 @@ export const middleware = auth((req) => {
     pathname !== AUTH_ERROR_ROUTE
   ) {
     return NextResponse.redirect(new URL("/auth/signin", req.url));
+  }
+  if (pathname === SETTINGS_MAIN_ROUTE) {
+    return NextResponse.redirect(new URL(SETTINGS_ACCOUNT_ROUTE, req.url));
   }
   return NextResponse.next();
 });

@@ -26,6 +26,7 @@ export const POST = auth(async function POST(req) {
       priority: zfd.numeric(z.number().min(1).max(3)),
       deadline: zfd.text(),
     });
+
     const { title, description, priority, deadline } = schema.parse(formData);
 
     const newTask = await createTask(

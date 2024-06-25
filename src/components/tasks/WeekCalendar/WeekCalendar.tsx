@@ -79,7 +79,7 @@ export const WeekCalendar = () => {
 
   return (
     <div className="flex h-full flex-col">
-      <header className="relative z-30 flex flex-none items-center justify-between border-b border-gray-200 dark:border-gray-800 py-4 px-6 dark:bg-zinc-800">
+      <header className="relative z-30 flex flex-none items-center justify-between border-b border-gray-200 dark:border-gray-800 py-4 px-6 dark:bg-gray-800">
         <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
           <time
             dateTime={`${currentWeek.getFullYear()}-${currentWeek.getMonth() + 1}`}
@@ -93,7 +93,7 @@ export const WeekCalendar = () => {
             <button
               type="button"
               onClick={handlePrevWeek}
-              className="flex items-center justify-center rounded-l-md border border-r-0 border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-zinc-900 py-2 pl-3 pr-4 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50 dark:hover:bg-gray-800"
+              className="flex items-center justify-center rounded-l-md border border-r-0 border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 py-2 pl-3 pr-4 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50 dark:hover:bg-gray-800"
             >
               <span className="sr-only">Previous month</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
@@ -101,7 +101,7 @@ export const WeekCalendar = () => {
             <button
               type="button"
               onClick={handleTodayClick}
-              className="hidden border-t border-b border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-zinc-900 px-3.5 text-sm font-medium text-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-50 dark:text-gray-100 focus:relative md:block"
+              className="hidden border-t border-b border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 px-3.5 text-sm font-medium text-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-50 dark:text-gray-100 focus:relative md:block"
             >
               Today
             </button>
@@ -109,7 +109,7 @@ export const WeekCalendar = () => {
             <button
               type="button"
               onClick={handleNextWeek}
-              className="flex items-center justify-center rounded-r-md border border-l-0 border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-zinc-900 py-2 pl-4 pr-3 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50 dark:hover:bg-gray-800"
+              className="flex items-center justify-center rounded-r-md border border-l-0 border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 py-2 pl-4 pr-3 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50 dark:hover:bg-gray-800"
             >
               <span className="sr-only">Next month</span>
               <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
@@ -119,7 +119,7 @@ export const WeekCalendar = () => {
             <Menu as="div" className="relative">
               <Menu.Button
                 type="button"
-                className="flex items-center rounded-md border border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-zinc-900 py-2 pl-3 pr-2 text-sm font-medium text-gray-800 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800"
+                className="flex items-center rounded-md border border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 py-2 pl-3 pr-2 text-sm font-medium text-gray-800 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800"
               >
                 Week view
                 <ChevronDownIcon
@@ -219,7 +219,7 @@ export const WeekCalendar = () => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="focus:outline-none absolute right-0 mt-3 w-36 origin-top-right divide-y divide-gray-100 dark:divide-gray-800 overflow-hidden rounded-md bg-gray-50 dark:bg-zinc-900 shadow-lg ring-1 ring-black ring-opacity-5">
+              <Menu.Items className="focus:outline-none absolute right-0 mt-3 w-36 origin-top-right divide-y divide-gray-100 dark:divide-gray-800 overflow-hidden rounded-md bg-gray-50 dark:bg-gray-900 shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="py-1">
                   <Menu.Item>
                     {({ active }) => (
@@ -306,7 +306,7 @@ export const WeekCalendar = () => {
       </header>
       <div
         ref={container}
-        className="flex flex-auto flex-col bg-white dark:bg-zinc-900 ring-1 ring-black ring-opacity-5 sm:pr-8"
+        className="flex flex-auto flex-col bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 sm:pr-8"
       >
         <div
           style={{ width: "165%" }}
@@ -314,7 +314,7 @@ export const WeekCalendar = () => {
         >
           <div
             ref={containerNav}
-            className="sticky top-0 z-20 flex-none bg-white dark:bg-zinc-900 shadow ring-1 ring-black ring-opacity-5 sm:pr-8"
+            className="sticky top-0 z-20 flex-none bg-white dark:bg-gray-900 shadow ring-1 ring-black ring-opacity-5 sm:pr-8"
           >
             <div className="grid grid-cols-7 text-sm leading-6 text-gray-500 sm:hidden">
               {daysInWeek.map((day, index) => (
@@ -370,7 +370,7 @@ export const WeekCalendar = () => {
           </div>
 
           <div className="flex flex-auto">
-            <div className="sticky left-0 w-14 flex-none bg-white dark:bg-zinc-800 ring-1 ring-gray-100 dark:ring-gray-700" />
+            <div className="sticky left-0 w-14 flex-none bg-white dark:bg-gray-800 ring-1 ring-gray-100 dark:ring-gray-700" />
             <div className="grid flex-auto grid-cols-1 grid-rows-1">
               {/* Horizontal lines */}
               <div

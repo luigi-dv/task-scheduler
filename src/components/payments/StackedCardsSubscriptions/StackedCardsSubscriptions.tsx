@@ -28,9 +28,11 @@ export const StackedCardsSubscriptions = (props: {
               value={product}
               className={({ checked, active }) =>
                 classNames(
-                  checked ? "border-transparent" : "border-gray-300",
+                  checked
+                    ? "border-transparent"
+                    : "border-gray-300 dark:border-gray-600",
                   active ? "ring-2 ring-emerald-500" : "",
-                  "relative block bg-white border rounded-lg shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none",
+                  "relative block bg-white dark:bg-gray-700 border rounded-lg shadow-sm px-6 py-4 cursor-pointer sm:flex sm:justify-between focus:outline-none",
                 )
               }
             >
@@ -40,13 +42,13 @@ export const StackedCardsSubscriptions = (props: {
                     <div className="text-sm">
                       <RadioGroup.Label
                         as="p"
-                        className="font-medium text-gray-900"
+                        className="font-medium text-gray-900 dark:text-gray-100"
                       >
                         {product.name}
                       </RadioGroup.Label>
                       <RadioGroup.Description
                         as="div"
-                        className="text-gray-500"
+                        className="text-gray-500 dark:text-gray-400 sm:inline"
                       >
                         <p className="sm:inline">{product.description}</p>
                       </RadioGroup.Description>
@@ -56,7 +58,7 @@ export const StackedCardsSubscriptions = (props: {
                     as="div"
                     className="mt-2 flex text-sm sm:mt-0 sm:block sm:ml-4 sm:text-right"
                   >
-                    <div className="font-medium text-gray-900">
+                    <div className="font-medium text-gray-900 dark:text-gray-50">
                       {new Intl.NumberFormat("de-DE", {
                         style: "currency",
                         currency: product.default_price

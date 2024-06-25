@@ -6,6 +6,8 @@ declare module "next-auth" {
   interface User {
     id: string;
     name: string;
+    surname: string;
+    country: string;
     email: string;
     image: string;
   }
@@ -19,7 +21,11 @@ declare module "next-auth" {
    * Returned by `useSession`, `auth`, contains information about the active session.
    */
   interface Session {
-    user: User & { id: string | null | undefined };
+    user: User & {
+      id: string | null | undefined;
+      surname: string;
+      country: string;
+    };
   }
 }
 
@@ -32,4 +38,9 @@ declare module "next-auth/jwt" {
     /** OpenID ID Token */
     idToken?: string;
   }
+}
+
+declare module "*.json" {
+  const value: any;
+  export default value;
 }
