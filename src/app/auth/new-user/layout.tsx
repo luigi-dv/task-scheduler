@@ -15,7 +15,7 @@ const NewUserLayout = async ({
         <div className="max-w-md w-full space-y-6">
           <NewUserHeader />
           <form action="/api/subscription/checkout-session" method="POST">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4 my-4">
               {children}
               {subscription}
               <div className="py-4">

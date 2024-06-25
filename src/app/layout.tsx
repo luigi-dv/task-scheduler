@@ -4,6 +4,7 @@ import React from "react";
 
 // Styles
 import "./globals.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

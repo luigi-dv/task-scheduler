@@ -41,7 +41,7 @@ function classNames(...classes: any[]) {
 
 export const Header = () => {
   return (
-    <Popover className="relative bg-white dark:bg-zinc-900">
+    <Popover className="relative bg-white dark:bg-gray-900">
       <div className="flex justify-between items-center px-4 py-2 sm:px-6 md:justify-start md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <Link href={"/"}>
@@ -50,7 +50,7 @@ export const Header = () => {
           </Link>
         </div>
         <div className="-mr-2 -my-2 md:hidden">
-          <Popover.Button className="bg-white dark:bg-zinc-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
+          <Popover.Button className="bg-white dark:bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
             <span className="sr-only">Open menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </Popover.Button>
@@ -77,7 +77,7 @@ export const Header = () => {
                     open
                       ? "text-gray-900 dark:text-gray-300"
                       : "text-gray-500 dark:text-gray-300",
-                    "group px-2 bg-white dark:bg-zinc-800 rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500",
+                    "group px-2 bg-white dark:bg-gray-800 rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500",
                   )}
                 >
                   <span>More</span>
@@ -103,12 +103,12 @@ export const Header = () => {
                 >
                   <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
                     <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                      <div className="relative grid gap-6 bg-white dark:bg-zinc-800 px-5 py-6 sm:gap-8 sm:p-8">
+                      <div className="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8">
                         {resources.map((resource) => (
                           <a
                             key={resource.name}
                             href={resource.href}
-                            className="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-zinc-700"
+                            className="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
                           >
                             <p className="text-base font-medium text-gray-900 dark:text-gray-200">
                               {resource.name}
@@ -149,14 +149,14 @@ export const Header = () => {
           focus
           className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-zinc-800 divide-y-2 divide-gray-50 dark:divide-zinc-700">
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-gray-800 divide-y-2 divide-gray-50 dark:divide-gray-700">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
                   <LogoIcon className="text-emerald-600 dark:text-emerald-400 h-24 w-auto" />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white dark:bg-zinc-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
+                  <Popover.Button className="bg-white dark:bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
