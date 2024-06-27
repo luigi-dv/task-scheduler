@@ -1,4 +1,3 @@
-import React from "react";
 import { EmailConfig } from "@auth/core/providers";
 import { sendEmail } from "@/actions/emailActions";
 

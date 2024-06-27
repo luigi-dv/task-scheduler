@@ -26,7 +26,7 @@ import { ProfileDropdown } from "@/components/common/ProfileDropdown";
 export const NavigationBar = (props: NavigationBarProps) => {
   const { user } = props;
   return (
-    <Disclosure as="nav" className="bg-gray-50 dark:bg-gray-900 shadow">
+    <Disclosure as="nav" className="bg-inherit shadow">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
