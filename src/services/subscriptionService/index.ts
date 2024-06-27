@@ -4,6 +4,7 @@ import { prismaClient } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 import { auth } from "@/auth";
 import { randomUUID } from "crypto";
+import { generateApiKey } from "@/lib/security/generateApiKey";
 
 /**
  * Has subscription service functions
@@ -41,7 +42,7 @@ export async function createCustomerIfNull() {
           id: user?.id,
         },
         data: {
-          api_key: "secret_" + randomUUID(),
+          api_key: generateApiKey(),
         },
       });
     }

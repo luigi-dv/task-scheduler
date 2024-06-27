@@ -16,9 +16,9 @@ export const SettingsNavigation = () => {
   return (
     <nav
       aria-label="Sections"
-      className="hidden flex-shrink-0 w-96 bg-gray-50 dark:bg-gray-800 border-r border-gray-300 dark:border-gray-700 xl:flex xl:flex-col"
+      className="hidden flex-shrink-0 w-96 bg-gray-100 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-950 xl:flex xl:flex-col"
     >
-      <div className="flex-shrink-0 h-16 px-6 border-b border-gray-300 dark:border-gray-700 flex items-center">
+      <div className="flex-shrink-0 h-16 px-6 border-b border-gray-200 dark:border-gray-950 flex items-center">
         <p className="text-lg font-light text-gray-800 dark:text-gray-200">
           Settings
         </p>
@@ -30,9 +30,9 @@ export const SettingsNavigation = () => {
             href={item.href}
             className={classNames(
               isCurrentPath(item.href)
-                ? "bg-gray-200 dark:bg-gray-700 bg-opacity-50"
-                : "hover:bg-gray-200 dark:hover:bg-gray-700 hover:bg-opacity-50",
-              "flex p-6 border-b border-gray-200 dark:border-gray-700",
+                ? "bg-gray-200 dark:bg-gray-800 bg-opacity-50"
+                : "hover:bg-gray-200 dark:hover:bg-gray-900 hover:bg-opacity-50",
+              "flex p-6 border-b border-gray-200 dark:border-gray-900",
             )}
             aria-current={item.current ? "page" : undefined}
           >

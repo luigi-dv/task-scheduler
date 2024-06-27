@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import {
   SETTINGS_ACCOUNT_ROUTE,
+  SETTINGS_INTEGRATION_ROUTE,
   SETTINGS_NOTIFICATIONS_ROUTE,
 } from "@/routes/settings";
 
@@ -50,7 +51,7 @@ export const settingsNavigation = [
   {
     name: "Integrations",
     description: "Connect and manage third-party integrations.",
-    href: "#",
+    href: SETTINGS_INTEGRATION_ROUTE,
     icon: RectangleGroupIcon,
     current: false,
   },

@@ -18,6 +18,7 @@ model User {
   stripe_customer_id       String?
   stripe_subscription_item String?
   api_key                  String?
+  api_key_expires          DateTime?
   accounts      Account[]
   sessions      Session[]
   tasks         Task[]

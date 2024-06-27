@@ -7,7 +7,7 @@ export default async function SettingsAccountPage({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-full flex py-6">
+    <div className="h-full flex">
       <div className="flex-1 min-w-0 flex flex-col overflow-hidden">
         <main className="flex-1 flex overflow-hidden">
           <div className="flex-1 flex flex-col overflow-y-auto xl:overflow-hidden">
@@ -32,7 +32,7 @@ export default async function SettingsAccountPage({
             <div className="flex-1 flex xl:overflow-hidden">
               <SettingsNavigation />
               {/* Main content */}
-              <div className="flex-1 xl:overflow-y-auto bg-gray-50 dark:bg-gray-900">
+              <div className="flex-1 xl:overflow-y-auto bg-gray-100 dark:bg-gray-900">
                 {children}
               </div>
             </div>

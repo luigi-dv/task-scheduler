@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { handleUserInformationFormSubmit } from "@/components/user/SettingsForm/services/handleAccountFormSubmit";
 import { fetchUserInformation } from "@/components/user/SettingsForm/services/fetchUserInformation";
+import { toast } from "react-toastify";
 
 export const useAccount = (user: any) => {
   const [nameValue, setName] = useState("");
@@ -44,15 +45,17 @@ export const useAccount = (user: any) => {
    */
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const result = await handleUserInformationFormSubmit(
-      nameValue,
-      surnameValue,
-      countryValue,
+
+    const result = await toast.promise(
+      handleUserInformationFormSubmit(nameValue, surnameValue, countryValue),
+      {
+        pending: "Updating User Information",
+        success: "User Information Updated",
+        error: "Error Updating User Information",
+      },
     );
 
-    if (result.ok) {
-      // Throw a success push notification
-    } else {
+    if (!result.ok) {
       alert("Error Updating User Information");
     }
   };
