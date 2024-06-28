@@ -12,6 +12,15 @@ const config: Config = {
     transparent: "transparent",
     current: "currentColor",
     extend: {
+      keyframes: {
+        iconWiggle: {
+          "0%, 100%": { transform: "rotate(-0.5deg)" },
+          "50%": { transform: "rotate(0.5deg)" },
+        },
+      },
+      animation: {
+        iconWiggle: "iconWiggle 1s ease-in-out infinite",
+      },
       colors: {
         // light mode
         tremor: {
