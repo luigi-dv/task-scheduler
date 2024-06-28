@@ -4,7 +4,12 @@
 import Image from "next/image";
 import Link from "next/link";
 // Routes
-import { CALENDAR_ROUTE, HOME_ROUTE, NEW_TASK_ROUTE } from "@/routes";
+import {
+  HOME_ROUTE,
+  NEW_TASK_ROUTE,
+  SETTINGS_ACCOUNT_ROUTE,
+  SETTINGS_MAIN_ROUTE,
+} from "@/routes";
 // Headless and Icons UI Modules
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -54,10 +59,10 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     href={HOME_ROUTE}
                     className="border-emerald-500 text-gray-900 dark:text-gray-100 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                   >
-                    Home
+                    Dashboard
                   </Link>
                   <Link
-                    href={CALENDAR_ROUTE}
+                    href={"#"}
                     className="border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 dark:hover:text-gray-400 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                   >
                     Calendar
@@ -92,11 +97,11 @@ export const NavigationBar = (props: NavigationBarProps) => {
                 href={HOME_ROUTE}
                 className="bg-emerald-50 dark:bg-emerald-900 border-emerald-500 text-emerald-700 dark:text-emerald-100 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
               >
-                Home
+                Dashboard
               </Disclosure.Button>
               <Disclosure.Button
                 as={Link}
-                href={CALENDAR_ROUTE}
+                href={"#"}
                 className="border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 hover:border-gray-300 dark:hover:text-gray-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
               >
                 Calendar
@@ -159,15 +164,15 @@ export const NavigationBar = (props: NavigationBarProps) => {
               </div>
               <div className="mt-3 space-y-1">
                 <Disclosure.Button
-                  as="a"
-                  href="#"
+                  as={Link}
+                  href={SETTINGS_ACCOUNT_ROUTE}
                   className="block px-4 py-2 text-base font-medium text-gray-500 dark:text-gray-300 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
                 >
-                  Your Profile
+                  Your Account
                 </Disclosure.Button>
                 <Disclosure.Button
                   as="a"
-                  href="#"
+                  href={SETTINGS_MAIN_ROUTE}
                   className="block px-4 py-2 text-base font-medium text-gray-500 dark:text-gray-300 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
                 >
                   Settings

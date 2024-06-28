@@ -40,7 +40,7 @@ export const TermsOfService = () => {
           taken as interchangeable and therefore as referring to the same.
         </p>
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">Cookies</h2>
             <ChevronRightIcon className="h-5 w-5 transition-transform" />
           </CollapsibleTrigger>
@@ -62,7 +62,7 @@ export const TermsOfService = () => {
           </CollapsibleContent>
         </Collapsible>
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">License</h2>
             <ChevronRightIcon className="h-5 w-5 transition-transform" />
           </CollapsibleTrigger>
@@ -88,7 +88,7 @@ export const TermsOfService = () => {
           </CollapsibleContent>
         </Collapsible>
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">Comments</h2>
             <ChevronRightIcon className="h-5 w-5 transition-transform" />
           </CollapsibleTrigger>
@@ -144,7 +144,7 @@ export const TermsOfService = () => {
         </Collapsible>
 
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">Hyperlinking to our Content</h2>
             <ChevronRightIcon className="h-5 w-5 transition-transform" />
           </CollapsibleTrigger>
@@ -240,7 +240,7 @@ export const TermsOfService = () => {
         </Collapsible>
 
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">iFrames</h2>
             <ChevronRightIcon className="h-5 w-5 transition-transform" />
           </CollapsibleTrigger>
@@ -256,7 +256,7 @@ export const TermsOfService = () => {
         </Collapsible>
 
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">Content Liability</h2>
             <ChevronRightIcon className="h-5 w-5 transition-transform" />
           </CollapsibleTrigger>
@@ -275,7 +275,7 @@ export const TermsOfService = () => {
         </Collapsible>
 
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">Reservation of Rights</h2>
             <ChevronRightIcon className="h-5 w-5 transition-transform" />
           </CollapsibleTrigger>
@@ -295,7 +295,7 @@ export const TermsOfService = () => {
         </Collapsible>
 
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">
               Removal of links from our website
             </h2>
@@ -320,7 +320,7 @@ export const TermsOfService = () => {
         </Collapsible>
 
         <Collapsible className="space-y-4">
-          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
+          <CollapsibleTrigger className="flex items-center justify-between w-full bg-gray-100 dark:bg-inherit px-4 py-3 rounded-md [&[data-state=open]>svg]:rotate-90">
             <h2 className="text-lg font-medium">Disclaimer</h2>
             <ChevronRightIcon className="h-5 w-5 transition-transform" />
           </CollapsibleTrigger>
