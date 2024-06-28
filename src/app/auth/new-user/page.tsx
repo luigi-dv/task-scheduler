@@ -5,7 +5,6 @@ import {
   hasSubscription,
 } from "@/services/subscriptionService";
 import { AUTH_SIGN_IN_ROUTE, HOME_ROUTE } from "@/routes";
-import { NewUserHeader } from "@/components/auth/NewUserHeader";
 
 const NewUserPage = async () => {
   const session = await auth();

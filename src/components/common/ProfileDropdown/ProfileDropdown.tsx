@@ -4,7 +4,7 @@ import Avatar from "boring-avatars";
 import { Fragment } from "react";
 import Link from "next/link";
 import { classNames } from "@/utilities/cn";
-import { SETTINGS_ROUTE } from "@/routes";
+import { SETTINGS_MAIN_ROUTE } from "@/routes";
 import { signOut } from "next-auth/react";
 
 import { ProfileDropdownProps } from "@/types/ProfileDropdownProps";
@@ -68,7 +68,7 @@ export const ProfileDropdown = (props: ProfileDropdownProps) => {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href={SETTINGS_ROUTE}
+                href={SETTINGS_MAIN_ROUTE}
                 className={classNames(
                   active ? "bg-gray-100 dark:bg-gray-900" : "",
                   "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300",

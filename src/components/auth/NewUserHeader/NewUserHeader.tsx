@@ -9,7 +9,8 @@ export const NewUserHeader = () => {
           src={"/images/8488221_3921258.jpg"}
           height={500}
           width={500}
-          alt="A person wearing a mask while working on a computer"
+          alt="A person scheduling tasks on a calendar"
+          priority={true}
         />
         <div
           className="absolute inset-0 bg-emerald-800 mix-blend-multiply"

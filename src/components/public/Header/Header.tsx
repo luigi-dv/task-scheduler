@@ -6,8 +6,14 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { LogoIcon } from "@/lib/icons/LogoIcon";
-import { AUTH_SIGN_IN_ROUTE } from "@/routes";
+import {
+  AUTH_SIGN_IN_ROUTE,
+  HOME_ROUTE,
+  PRIVACY_POLICY_ROUTE,
+  TERMS_OF_SERVICE_ROUTE,
+} from "@/routes";
 import { PRICING_ROUTE } from "@/routes/public";
+import { usePathname } from "next/navigation";
 
 const resources = [
   {
@@ -26,12 +32,12 @@ const resources = [
     name: "Terms Of Services",
     description:
       "See what meet-ups and other events we might be planning near you.",
-    href: "#",
+    href: TERMS_OF_SERVICE_ROUTE,
   },
   {
     name: "Privacy Policy",
     description: "Understand how we take your privacy seriously.",
-    href: "#",
+    href: PRIVACY_POLICY_ROUTE,
   },
 ];
 
@@ -40,6 +46,8 @@ function classNames(...classes: any[]) {
 }
 
 export const Header = () => {
+  const pathname = usePathname();
+
   return (
     <Popover className="relative bg-white dark:bg-gray-900">
       <div className="flex justify-between items-center px-4 py-2 sm:px-6 md:justify-start md:space-x-10">
@@ -57,14 +65,35 @@ export const Header = () => {
         </div>
         <Popover.Group as="nav" className="hidden md:flex space-x-10">
           <a
+            href={HOME_ROUTE}
+            className={classNames(
+              pathname === HOME_ROUTE
+                ? "text-emerald-600 hover:text-emerald-500 dark:hover:text-emerald-700"
+                : "text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500",
+              "text-base font-medium",
+            )}
+          >
+            Home
+          </a>
+          <a
             href={PRICING_ROUTE}
-            className="text-base font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500"
+            className={classNames(
+              pathname === PRICING_ROUTE
+                ? "text-emerald-600 hover:text-emerald-500 dark:hover:text-emerald-700"
+                : "text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500",
+              "text-base font-medium",
+            )}
           >
             Pricing
           </a>
           <a
             href="#"
-            className="text-base font-medium text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500"
+            className={classNames(
+              pathname === "#"
+                ? "text-emerald-600 hover:text-emerald-500 dark:hover:text-emerald-700"
+                : "text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500",
+              "text-base font-medium",
+            )}
           >
             Docs
           </a>
@@ -77,7 +106,7 @@ export const Header = () => {
                     open
                       ? "text-gray-900 dark:text-gray-300"
                       : "text-gray-500 dark:text-gray-300",
-                    "group px-2 bg-white dark:bg-gray-800 rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500",
+                    "group cursor-pointer px-2 bg-inherit rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500",
                   )}
                 >
                   <span>More</span>
@@ -105,7 +134,7 @@ export const Header = () => {
                     <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                       <div className="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8">
                         {resources.map((resource) => (
-                          <a
+                          <Link
                             key={resource.name}
                             href={resource.href}
                             className="-m-3 p-3 block rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
@@ -116,7 +145,7 @@ export const Header = () => {
                             <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                               {resource.description}
                             </p>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -156,7 +185,7 @@ export const Header = () => {
                   <LogoIcon className="text-emerald-600 dark:text-emerald-400 h-24 w-auto" />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white dark:bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
+                  <Popover.Button className="bg-inherit rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -165,26 +194,25 @@ export const Header = () => {
             </div>
             <div className="py-6 px-5">
               <div className="grid grid-cols-2 gap-4">
-                <a
-                  href="#"
+                <Link
+                  href={HOME_ROUTE}
+                  className="text-base font-medium text-gray-900 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400"
+                >
+                  Home
+                </Link>
+                <Link
+                  href={PRICING_ROUTE}
                   className="text-base font-medium text-gray-900 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400"
                 >
                   Pricing
-                </a>
+                </Link>
 
-                <a
-                  href="#"
+                <Link
+                  href={"#"}
                   className="text-base font-medium text-gray-900 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400"
                 >
                   Docs
-                </a>
-
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400"
-                >
-                  Enterprise
-                </a>
+                </Link>
                 {resources.map((resource) => (
                   <a
                     key={resource.name}
