@@ -10,7 +10,7 @@ import {
   SETTINGS_ACCOUNT_ROUTE,
   SETTINGS_INTEGRATION_ROUTE,
   SETTINGS_NOTIFICATIONS_ROUTE,
-} from "@/routes/settings";
+} from "@/routes";
 
 export const settingsNavigation = [
   {
