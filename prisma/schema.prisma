@@ -7,6 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model ApiKey {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String?
+  key         String   @unique
+  expires     DateTime
+  userId      String   @db.ObjectId
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 model User {
   id            String          @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
@@ -17,8 +30,6 @@ model User {
   image         String?
   stripe_customer_id       String?
   stripe_subscription_item String?
-  api_key                  String?
-  api_key_expires          DateTime?
   accounts      Account[]
   sessions      Session[]
   tasks         Task[]
@@ -26,9 +37,10 @@ model User {
   createdAssignments Assignment[] @relation("createdAssignments")
   assignments   Assignment[]      @relation("assignments")
   userConfig    UserConfig?
-
   // Optional for WebAuthn support
   Authenticator Authenticator[]
+  // API Keys
+  tokens        ApiKey[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -76,7 +88,6 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// Optional for WebAuthn support
 model Authenticator {
   id                   String  @id @default(auto()) @map("_id") @db.ObjectId
   credentialID         String  @unique
@@ -91,7 +102,6 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-// Task Entity: A task that needs to be done
 model Task {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   userId      String  @db.ObjectId
@@ -143,9 +153,6 @@ model Tag {
   activityTags ActivityTags @relation(fields: [activityTagsId], references: [id])
 }
 
-
-
-// User Configuration: User specific configuration
 model UserConfig {
   id              String  @id @default(auto()) @map("_id") @db.ObjectId
   userId          String  @db.ObjectId @unique

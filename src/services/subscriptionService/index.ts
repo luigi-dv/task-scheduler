@@ -3,8 +3,8 @@
 import { prismaClient } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 import { auth } from "@/auth";
-import { randomUUID } from "crypto";
-import { generateApiKey } from "@/lib/security/generateApiKey";
+import { createAPIKey } from "@/services/apiKeyService";
+import { getUser, getUserAPIKeys } from "@/services/userService";
 
 /**
  * Has subscription service functions
@@ -22,7 +22,6 @@ export const hasSubscription = async () => {
 
     return subscriptions.data.length > 0;
   }
-
   return null;
 };
 
@@ -32,19 +31,12 @@ export const hasSubscription = async () => {
 export async function createCustomerIfNull() {
   const session = await auth();
   if (session) {
-    const user = await prismaClient.user.findFirst({
-      where: { email: session.user?.email },
-    });
+    const user = await getUser(session.user?.id);
 
-    if (!user?.api_key) {
-      await prismaClient.user.update({
-        where: {
-          id: user?.id,
-        },
-        data: {
-          api_key: generateApiKey(),
-        },
-      });
+    const apiKeys = await getUserAPIKeys(user?.id);
+
+    if (user && apiKeys.length === 0) {
+      await createAPIKey(user.id);
     }
     if (!user?.stripe_customer_id) {
       const customer = await stripe.customers.create({

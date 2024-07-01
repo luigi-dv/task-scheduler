@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from "react";
 import { handleUserInformationFormSubmit } from "@/components/user/SettingsForm/services/handleAccountFormSubmit";
 import { fetchUserInformation } from "@/components/user/SettingsForm/services/fetchUserInformation";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 export const useAccount = (user: any) => {
   const [nameValue, setName] = useState("");
@@ -40,24 +40,21 @@ export const useAccount = (user: any) => {
 
     fetchUserData();
   }, []);
+
   /**
    * Handle the task form submit
    */
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const result = await toast.promise(
+    toast.promise(
       handleUserInformationFormSubmit(nameValue, surnameValue, countryValue),
       {
-        pending: "Updating User Information",
+        loading: "Updating User Information",
         success: "User Information Updated",
         error: "Error Updating User Information",
       },
     );
-
-    if (!result.ok) {
-      alert("Error Updating User Information");
-    }
   };
 
   return {

@@ -53,24 +53,11 @@ export const ProfileDropdown = (props: ProfileDropdownProps) => {
       >
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none">
           <Menu.Item>
-            {({ active }) => (
-              <Link
-                href="#"
-                className={classNames(
-                  active ? "bg-gray-100 dark:bg-gray-900" : "",
-                  "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300",
-                )}
-              >
-                Your Profile
-              </Link>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
+            {({ focus }) => (
               <Link
                 href={SETTINGS_MAIN_ROUTE}
                 className={classNames(
-                  active ? "bg-gray-100 dark:bg-gray-900" : "",
+                  focus ? "bg-gray-100 dark:bg-gray-900" : "",
                   "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300",
                 )}
               >
@@ -79,11 +66,11 @@ export const ProfileDropdown = (props: ProfileDropdownProps) => {
             )}
           </Menu.Item>
           <Menu.Item>
-            {({ active }) => (
+            {({ focus }) => (
               <a
                 onClick={() => signOut()}
                 className={classNames(
-                  active ? "bg-gray-100 dark:bg-gray-900" : "",
+                  focus ? "bg-gray-100 dark:bg-gray-900" : "",
                   "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer",
                 )}
               >
