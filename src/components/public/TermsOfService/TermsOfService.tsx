@@ -8,9 +8,14 @@ import { ChevronRightIcon } from "@heroicons/react/24/solid";
 
 export const TermsOfService = () => {
   return (
-    <main className="w-full max-w-3xl mx-auto py-12 px-4 md:px-6 text-gray-900 dark:text-gray-100">
+    <main className="w-full max-w-5xl mx-auto py-12 px-4 md:px-6 text-gray-900 dark:text-gray-100">
       <div className="space-y-6">
-        <h1 className="text-3xl font-bold">Terms and Conditions</h1>
+        <h2 className="text-base md:text-lg font-bold text-gray-600 dark:text-gray-500 uppercase tracking-widest">
+          Terms of Service
+        </h2>
+        <h2 className="text-4xl md:text-7xl text-gray-900 dark:text-gray-100">
+          All the details of terms of service, easily accessible.
+        </h2>
         <p className="text-gray-500 dark:text-gray-400 italic">
           These terms and conditions outline the rules and regulations for the
           use of Ldvloper&apos;s Website, located at
