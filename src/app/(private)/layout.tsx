@@ -3,7 +3,6 @@ import { auth } from "@/auth";
 import React from "react";
 import { NavigationBar } from "@/components/common/NavigationBar";
 import { Footer } from "@/components/common/Footer";
-import { NotificationWrapper } from "@/components/common/NotificationWrapper";
 
 const metadata: Metadata = {
   title: "Task Scheduler | Ldvloper",
@@ -21,8 +20,7 @@ export default async function RootLayout({
   return (
     <>
       <NavigationBar user={session?.user} />
-      <div>{children}</div>
-      <NotificationWrapper />
+      {children}
       <Footer />
     </>
   );

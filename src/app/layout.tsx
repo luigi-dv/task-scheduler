@@ -4,6 +4,7 @@ import React from "react";
 
 // Styles
 import "./globals.css";
+import { ToastProvider } from "@/providers/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,7 @@ export default function RootLayout({
           inter.className + "min-h-[100dvh] bg-gray-100 dark:bg-gray-950"
         }
       >
-        {children}
+        <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
   );
