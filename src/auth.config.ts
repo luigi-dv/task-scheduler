@@ -1,5 +1,5 @@
-import GitHub from "@auth/core/providers/github";
-import Google from "@auth/core/providers/google";
+import GitHub from "next-auth/providers/github";
+import Google from "next-auth/providers/google";
 import Resend from "@auth/core/providers/resend";
 import { NextAuthConfig, Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
@@ -9,7 +9,6 @@ import {
   AUTH_SIGN_IN_ROUTE,
   AUTH_VERIFY_REQUEST_ROUTE,
 } from "@/routes";
-import Passkey from "@auth/core/providers/passkey";
 
 export default {
   providers: [

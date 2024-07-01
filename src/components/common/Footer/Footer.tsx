@@ -1,3 +1,5 @@
+"use client";
+
 import { SVGProps } from "react";
 import { PRIVACY_POLICY_ROUTE, TERMS_OF_SERVICE_ROUTE } from "@/routes/public";
 

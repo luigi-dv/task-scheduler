@@ -4,8 +4,6 @@ import { prismaClient } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 import { auth } from "@/auth";
 import { getUser } from "@/services/userService";
-import { getUserAPIKeys, createAPIKey } from "@/services/apiKeyService";
-
 /**
  * Has subscription service functions
  */

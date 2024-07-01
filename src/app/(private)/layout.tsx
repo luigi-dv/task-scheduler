@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { auth } from "@/auth";
 import React from "react";
 import { NavigationBar } from "@/components/common/NavigationBar";
 import { Footer } from "@/components/common/Footer";
@@ -15,11 +14,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
-
   return (
     <>
-      <NavigationBar user={session?.user} />
+      <NavigationBar />
       {children}
       <Footer />
     </>

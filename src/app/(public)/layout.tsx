@@ -1,10 +1,10 @@
 import { Footer } from "@/components/common/Footer";
-import { Header } from "@/components/public/Header";
+import { NavigationBar } from "@/components/common/NavigationBar";
 
 const PublicLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <Header />
+      <NavigationBar />
       {children}
       <Footer />
     </div>

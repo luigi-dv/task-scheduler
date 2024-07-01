@@ -3,7 +3,8 @@ import { GithubForm } from "@/components/auth/GithubForm";
 import { LogoIcon } from "@/lib/icons/LogoIcon";
 import { SignInFooter } from "@/components/auth/SignInFooter";
 import { GoogleForm } from "@/components/auth/GoogleForm/GoogleForm";
-import { PasskeyForm } from "@/components/auth/PasskeyForm";
+import Link from "next/link";
+import { DOCUMENTATION_ROUTE } from "@/routes";
 
 const Signin = () => {
   return (
@@ -16,7 +17,7 @@ const Signin = () => {
         <p className="mt-2 text-center text-sm text-gray-600">
           Or{" "}
           <span className="font-medium text-emerald-600 hover:text-emerald-500">
-            start scheduling tasks for free
+            <Link href={DOCUMENTATION_ROUTE}>access to our documentation</Link>
           </span>
         </p>
       </div>
