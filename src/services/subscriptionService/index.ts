@@ -3,8 +3,8 @@
 import { prismaClient } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 import { auth } from "@/auth";
-import { createAPIKey } from "@/services/apiKeyService";
-import { getUser, getUserAPIKeys } from "@/services/userService";
+import { getUser } from "@/services/userService";
+import { getUserAPIKeys, createAPIKey } from "@/services/apiKeyService";
 
 /**
  * Has subscription service functions
@@ -33,11 +33,6 @@ export async function createCustomerIfNull() {
   if (session) {
     const user = await getUser(session.user?.id);
 
-    const apiKeys = await getUserAPIKeys(user?.id);
-
-    if (user && apiKeys.length === 0) {
-      await createAPIKey(user.id);
-    }
     if (!user?.stripe_customer_id) {
       const customer = await stripe.customers.create({
         email: String(user?.email),
