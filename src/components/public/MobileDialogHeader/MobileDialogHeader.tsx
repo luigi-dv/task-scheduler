@@ -58,27 +58,22 @@ export const MobileDialogHeader = (props: MobileDialogHeaderProps) => {
 const AuthenticatedDialog = (props: AuthenticatedDialogProps) => {
   const { mobileMenuOpen, setMobileMenuOpen } = props;
   return (
-    <Dialog
-      className="lg:hidden"
-      open={mobileMenuOpen}
-      onClose={setMobileMenuOpen}
-    >
+    <Dialog open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
       <motion.div
-        initial={{ opacity: 0, x: "-100%" }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: "-100%" }}
-        transition={{ ease: "easeOut", duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ ease: "easeOut", duration: 0.3 }}
         className="fixed inset-0 bg-black/30"
       />
-      <div className="fixed inset-0 z-10" />
       <motion.div
         initial={{ x: "-100%" }}
-        animate={{ x: "0%" }}
+        animate={{ x: 0 }}
         exit={{ x: "-100%" }}
         transition={{ ease: "easeOut", duration: 0.5 }}
         className="fixed inset-y-0 left-0 z-20 w-3/4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
       >
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 left-0 z-30 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href={"/"} className="-m-1.5 p-1.5">
               <span className="sr-only">Task Scheduler</span>
@@ -133,24 +128,23 @@ const UnauthenticatedDialog = (props: UnauthenticatedDialogProps) => {
     <Dialog
       className="lg:hidden"
       open={mobileMenuOpen}
-      onClose={setMobileMenuOpen}
+      onClose={() => setMobileMenuOpen(false)}
     >
       <motion.div
-        initial={{ opacity: 0, x: "-100%" }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: "-100%" }}
-        transition={{ ease: "easeOut", duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ ease: "easeOut", duration: 0.3 }}
         className="fixed inset-0 bg-black/30"
       />
-      <div className="fixed inset-0 z-10" />
       <motion.div
         initial={{ x: "-100%" }}
-        animate={{ x: "0%" }}
+        animate={{ x: 0 }}
         exit={{ x: "-100%" }}
         transition={{ ease: "easeOut", duration: 0.5 }}
         className="fixed inset-y-0 left-0 z-20 w-3/4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
       >
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 left-0 z-30 w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href={"/"} className="-m-1.5 p-1.5">
               <span className="sr-only">Task Scheduler</span>

@@ -7,8 +7,6 @@ import { STATUS_CODES } from "@/constants";
 
 /**
  * POST /api/tasks/create
- * @description Create a new task
- * @constructor
  */
 export const POST = auth(async function POST(req) {
   if (!req.auth) {

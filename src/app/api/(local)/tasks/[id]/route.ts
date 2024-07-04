@@ -5,8 +5,6 @@ import { STATUS_CODES } from "@/constants";
 
 /**
  * GET /api/tasks/[id]
- * @description Get a new task by id
- * @constructor
  */
 export const GET = auth(async function GET(req, { params }) {
   const id = params?.id;
@@ -19,7 +17,7 @@ export const GET = auth(async function GET(req, { params }) {
 
   if (!id) {
     return NextResponse.json(
-      { message: "No id provided" },
+      { message: "No Task ID provided" },
       { status: STATUS_CODES.BAD_REQUEST },
     );
   }

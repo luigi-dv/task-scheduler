@@ -15,6 +15,7 @@ import React from "react";
 import { useApiKeys } from "@/hooks/useApiKeys";
 import { ApiTokenForm } from "@/components/integration/ApiTokenForm";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 type ApiTokenModalProps = {
   includeButton: boolean;
@@ -30,7 +31,9 @@ export const ApiTokenModal = (props: ApiTokenModalProps) => {
    * Copy the API key to the clipboard
    */
   const handleCopy = () => {
-    navigator.clipboard.writeText(apiKeyValue);
+    navigator.clipboard
+      .writeText(apiKeyValue)
+      .then((r) => toast.info("API Key copied to clipboard"));
   };
 
   /**
@@ -45,7 +48,7 @@ export const ApiTokenModal = (props: ApiTokenModalProps) => {
   return (
     <>
       {props.includeButton && (
-        <ButtonUI variant="outline" onClick={openModal}>
+        <ButtonUI variant="outline" size="xs" onClick={openModal}>
           Generate new token
         </ButtonUI>
       )}
@@ -88,7 +91,10 @@ export const ApiTokenModal = (props: ApiTokenModalProps) => {
                   </ButtonUI>
                 </div>
               ) : (
-                <ApiTokenForm createNewApiKey={createNewApiKey} />
+                <ApiTokenForm
+                  createNewApiKey={createNewApiKey}
+                  resetApiKeyValues={resetApiKeyValues}
+                />
               )}
             </DialogPanel>
           </div>

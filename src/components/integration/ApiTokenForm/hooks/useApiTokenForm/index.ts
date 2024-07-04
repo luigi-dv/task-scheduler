@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useApiKeys } from "@/hooks/useApiKeys";
 
 /**
  * useApiTokenForm hook
@@ -11,6 +10,7 @@ export const useApiTokenForm = (
   const [expiryDays, setExpiryDays] = useState(30);
   const [showCustomExpiry, setShowCustomExpiry] = useState(false);
   const [expiryDate, setExpiryDate] = useState<Date>(new Date());
+  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   useEffect(() => {
     const date = new Date();
@@ -18,6 +18,13 @@ export const useApiTokenForm = (
     setExpiryDate(date);
   }, [expiryDays]);
 
+  useEffect(() => {
+    if (name.length > 0) {
+      setButtonDisabled(false);
+      return;
+    }
+    setButtonDisabled(true);
+  }, [name]);
   /**
    * Handle name change
    * @param event
@@ -66,6 +73,7 @@ export const useApiTokenForm = (
     expiryDays,
     showCustomExpiry,
     expiryDate,
+    buttonDisabled,
     handleNameChange,
     handleExpiryDaysChange,
     handleCustomExpiryChange,

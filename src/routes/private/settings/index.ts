@@ -1,4 +1,9 @@
 export const SETTINGS_MAIN_ROUTE = "/settings";
+export const SETTINGS_PROFILE_ROUTE = "/settings/profile";
+export const SETTINGS_APPEARANCE_ROUTE = "/settings/appearance";
 export const SETTINGS_ACCOUNT_ROUTE = "/settings/account";
 export const SETTINGS_NOTIFICATIONS_ROUTE = "/settings/notifications";
-export const SETTINGS_INTEGRATION_ROUTE = "/settings/integration";
+export const SETTINGS_BILLING_ROUTE = "/settings/billing";
+export const SETTINGS_SECURITY_ROUTE = "/settings/security";
+export const SETTINGS_SESSIONS_ROUTE = "/settings/sessions";
+export const SETTINGS_API_KEY_ROUTE = "/settings/api-key";

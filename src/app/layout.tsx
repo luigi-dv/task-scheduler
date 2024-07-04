@@ -26,7 +26,7 @@ export default async function RootLayout({
     <html lang="en" className="h-full">
       <body
         className={
-          inter.className + "min-h-[100dvh] bg-gray-100 dark:bg-gray-950"
+          inter.className + "min-h-[100dvh] bg-gray-50 dark:bg-[#0d1117]"
         }
       >
         <ToastProvider>

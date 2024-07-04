@@ -16,7 +16,7 @@ export const ToastProvider = ({ children }: ToastProviderProps) => {
   return (
     <>
       {children}
-      <Toaster />
+      <Toaster position="top-right" richColors />
     </>
   );
 };

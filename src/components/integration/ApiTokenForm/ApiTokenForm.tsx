@@ -4,12 +4,15 @@ import { Button as ButtonUI } from "@/components/ui/button";
 import React from "react";
 import { useModalContext } from "@/context/ModalContext";
 import { useApiTokenForm } from "@/components/integration/ApiTokenForm/hooks/useApiTokenForm";
+import { useRouter } from "next/navigation";
 
 interface ApiTokenFormProps {
   createNewApiKey: (formData: FormData) => void;
+  resetApiKeyValues: () => void;
 }
 
 export const ApiTokenForm = (props: ApiTokenFormProps) => {
+  const router = useRouter();
   const { closeModal } = useModalContext();
 
   const {
@@ -17,11 +20,21 @@ export const ApiTokenForm = (props: ApiTokenFormProps) => {
     expiryDays,
     showCustomExpiry,
     expiryDate,
+    buttonDisabled,
     handleNameChange,
     handleExpiryDaysChange,
     handleCustomExpiryChange,
     handleFormSubmit,
   } = useApiTokenForm(props.createNewApiKey);
+
+  /**
+   * Close the modal
+   */
+  const handleCloseModal = () => {
+    closeModal();
+    props.resetApiKeyValues();
+    router.refresh();
+  };
 
   return (
     <form onSubmit={handleFormSubmit} className="mt-2">
@@ -69,10 +82,14 @@ export const ApiTokenForm = (props: ApiTokenFormProps) => {
       </div>
       <input name="expires" type="hidden" value={expiryDate.getDate()} />
       <div className="mt-4 flex w-full justify-between space-x-4">
-        <ButtonUI variant={"destructive"} onClick={closeModal}>
+        <ButtonUI
+          type="button"
+          variant={"destructive"}
+          onClick={handleCloseModal}
+        >
           Close
         </ButtonUI>
-        <ButtonUI variant={"default"} type="submit">
+        <ButtonUI variant={"default"} type="submit" disabled={buttonDisabled}>
           Create API token
         </ButtonUI>
       </div>

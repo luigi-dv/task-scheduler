@@ -13,6 +13,10 @@
     @apply text-xl font-light text-gray-900 dark:text-gray-200;
   }
 
+  .form-subheading {
+    @apply font-semibold mb-4 text-sm text-gray-800 dark:text-gray-200;
+  }
+
   .form-subtext {
     @apply mt-1 text-sm text-gray-600 dark:text-gray-400;
   }

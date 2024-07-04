@@ -5,10 +5,6 @@ import { generateApiKey } from "@/lib/security/generateApiKey";
 
 /**
  * Create API key
- * @param userId
- * @param name
- * @param description
- * @param expires
  */
 export const createAPIKey = async (
   userId: string,
@@ -27,12 +23,8 @@ export const createAPIKey = async (
   });
 };
 
-/**
- * Revoke API key
- * @param id
- */
-export const revokeAPIKey = async (id: string) => {
-  await prismaClient.apiKey.delete({
+export const deleteAPIKey = async (id: string) => {
+  return prismaClient.apiKey.delete({
     where: {
       id,
     },
