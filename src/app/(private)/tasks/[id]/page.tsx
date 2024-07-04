@@ -1,12 +1,9 @@
-import { getTask } from "@/services/taskService";
 import { auth } from "@/auth";
-// Components
+import { getTask } from "@/services/taskService";
 import { TaskHeader } from "@/components/tasks/TaskHeader";
 
 /**
  * This is a private page that requires authentication.
- * @param params
- * @constructor
  */
 export default async function TaskPage({ params }: { params: { id: string } }) {
   const data = await getData(params.id);
@@ -15,9 +12,9 @@ export default async function TaskPage({ params }: { params: { id: string } }) {
   }
 }
 
-async function getData(id: string) {
+const getData = async (id: string) => {
   const session = await auth();
   if (session) {
     return await getTask(id, session.user);
   }
-}
+};

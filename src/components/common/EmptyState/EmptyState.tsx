@@ -5,12 +5,6 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 
 /**
  * Empty state component (CC)
- * @description Display an empty state with a title, description and primary action
- * @param title
- * @param description
- * @param icon
- * @param primaryAction
- * @constructor
  */
 export const EmptyState = ({
   title,
@@ -19,7 +13,7 @@ export const EmptyState = ({
   primaryAction,
 }: EmptyStateProps) => {
   return (
-    <div className="text-center bg-gray-50 dark:bg-gray-800 rounded-md p-4">
+    <div className="text-center bg-inherit rounded-md border border-gray-300 dark:border-gray-800 p-4">
       {icon}
       <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
         {title}

@@ -1,19 +1,18 @@
-import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { STATUS_CODES } from "@/constants";
-import { createAPIKey } from "@/services/apiKeyService";
-import { zfd } from "zod-form-data";
+import { NextResponse } from "next/server";
+import { deleteAPIKey } from "@/services/apiKeyService";
 
-/**
- * POST /api/api-key/create
- */
-export const POST = auth(async function POST(req) {
+export const DELETE = auth(async function DELETE(req, { params }) {
+  const id = params?.id;
+
   if (!req.auth) {
     return NextResponse.json(
       { message: "Not authenticated" },
       { status: STATUS_CODES.UNAUTHORIZED },
     );
   }
+
   try {
     if (!req.auth.user.id) {
       return NextResponse.json(
@@ -22,23 +21,16 @@ export const POST = auth(async function POST(req) {
       );
     }
 
-    const formData = await req.formData();
+    if (!id) {
+      return NextResponse.json(
+        { message: "No API Key ID provided" },
+        { status: STATUS_CODES.BAD_REQUEST },
+      );
+    }
 
-    const schema = zfd.formData({
-      name: zfd.text(),
-      expires: zfd.text(),
-    });
-
-    const { name, expires } = schema.parse(formData);
-
-    const newApiKey = await createAPIKey(
-      req.auth.user.id,
-      name,
-      new Date(expires),
-    );
+    const newApiKey = await deleteAPIKey(id.toString());
     return Response.json(newApiKey);
   } catch (error) {
-    console.error(error);
     return NextResponse.json(
       { message: "Internal server error" },
       { status: STATUS_CODES.INTERNAL_SERVER_ERROR },

@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           "text-white bg-emerald-500 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 dark:text-white dark:bg-emerald-600 dark:hover:bg-emerald-800 dark:focus:ring-emerald-600",
         destructive:
-          "bg-red-500 text-gray-50 hover:bg-red-500/90 dark:bg-red-700 dark:text-gray-50 dark:hover:bg-red-700/90",
+          "bg-gray-200/50 dark:bg-gray-800 border border-gray-200 dark:border-gray-800 text-red-500 hover:bg-red-700/90 hover:text-gray-100 dark:text-red-600 dark:hover:bg-red-700/90",
         outline:
           "border border-gray-200 bg-white dark:text-gray-200 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-50",
         secondary:
@@ -23,6 +23,7 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-10 px-4 py-2",
+        xs: "h-7 text-xs rounded-md px-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createApiKey } from "@/hooks/useApiKeys/services/createApiKey";
+import { toast } from "sonner";
 
 /**
  * Hook to manage the API key
@@ -10,12 +11,17 @@ export const useApiKeys = () => {
 
   /**
    * Create a new API key
-   * @param formData - Form data
    */
   const createNewApiKey = async (formData: FormData) => {
-    const newApiKey = await createApiKey(formData);
-    setApiKeyValue(newApiKey.key);
-    setApiKeyExpiry(newApiKey.expires);
+    toast.promise(createApiKey(formData), {
+      loading: "Creating new API Key...",
+      success: (data) => {
+        setApiKeyValue(data.key);
+        setApiKeyExpiry(data.expires);
+        return "API Token Created Successfully";
+      },
+      error: "Failed to create API Key",
+    });
   };
 
   /**

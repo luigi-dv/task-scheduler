@@ -1,58 +1,66 @@
 import {
-  BanknotesIcon,
+  ShieldExclamationIcon,
   BellIcon,
   CogIcon,
+  CreditCardIcon,
+  UserIcon,
+  PaintBrushIcon,
+  SignalIcon,
   KeyIcon,
-  PhotoIcon,
-  RectangleGroupIcon,
 } from "@heroicons/react/24/outline";
+
 import {
   SETTINGS_ACCOUNT_ROUTE,
-  SETTINGS_INTEGRATION_ROUTE,
+  SETTINGS_API_KEY_ROUTE,
   SETTINGS_NOTIFICATIONS_ROUTE,
+  SETTINGS_PROFILE_ROUTE,
 } from "@/routes";
 
-export const settingsNavigation = [
+export const mainSettingsNavigation = [
+  {
+    name: "Public profile",
+    href: SETTINGS_PROFILE_ROUTE,
+    icon: UserIcon,
+  },
   {
     name: "Account",
-    description: "Manage personal info, email addresses, and profile settings.",
     href: SETTINGS_ACCOUNT_ROUTE,
     icon: CogIcon,
-    current: true,
-  },
-  {
-    name: "Notifications",
-    description: "Set your notification preferences and choose alert methods.",
-    href: SETTINGS_NOTIFICATIONS_ROUTE,
-    icon: BellIcon,
-    current: false,
-  },
-  {
-    name: "Security",
-    description: "Update password, enable two-factor auth, and review logins.",
-    href: "#",
-    icon: KeyIcon,
-    current: false,
   },
   {
     name: "Appearance",
-    description: "Customize themes, fonts, and display settings.",
     href: "#",
-    icon: PhotoIcon,
-    current: false,
+    icon: PaintBrushIcon,
   },
   {
-    name: "Billing",
-    description: "Manage billing info, payment methods, and subscriptions.",
-    href: "#",
-    icon: BanknotesIcon,
-    current: false,
+    name: "Notifications",
+    href: SETTINGS_NOTIFICATIONS_ROUTE,
+    icon: BellIcon,
+  },
+];
+
+export const accessSettingsNavigation = [
+  {
+    name: "Billing and plans",
+    href: SETTINGS_ACCOUNT_ROUTE,
+    icon: CreditCardIcon,
   },
   {
-    name: "Integrations",
-    description: "Connect and manage third-party integrations.",
-    href: SETTINGS_INTEGRATION_ROUTE,
-    icon: RectangleGroupIcon,
-    current: false,
+    name: "Password and security",
+    href: SETTINGS_ACCOUNT_ROUTE,
+    icon: ShieldExclamationIcon,
+  },
+  {
+    name: "Sessions",
+    href: "#",
+    icon: SignalIcon,
+  },
+];
+
+export const integrationSettingsNavigation = [
+  {
+    name: "API Keys",
+    href: SETTINGS_API_KEY_ROUTE,
+    icon: KeyIcon,
   },
 ];

@@ -6,3 +6,4 @@ export const API_UPLOAD_AVATAR_ROUTE = "/api/avatar/upload";
 export const API_GET_CURRENT_USER_ROUTE = "/api/user";
 
 export const API_CREATE_API_KEY_ROUTE = "/api/api-key/create";
+export const API_DELETE_API_KEY_ROUTE = "/api/api-key/delete";

@@ -5,8 +5,6 @@ import { STATUS_CODES } from "@/constants";
 
 /**
  * GET /api/tasks
- * @description Get a list of tasks
- * @constructor
  */
 export const GET = auth(async function GET(req, { params }) {
   const { searchParams } = new URL(req.url);
