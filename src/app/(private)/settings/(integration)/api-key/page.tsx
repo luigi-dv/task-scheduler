@@ -10,7 +10,7 @@ const IntegrationPage = async () => {
   if (apiKeys) {
     return (
       <div className="max-w-3xl mx-auto">
-        <PageHeader withUnderline={true}>
+        <PageHeader variant="underlined">
           <div className="grid grid-cols-2 justify-between">
             API Key
             {apiKeys.length != 0 && (

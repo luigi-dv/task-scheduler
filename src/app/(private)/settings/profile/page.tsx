@@ -7,7 +7,7 @@ export default async function SettingsProfilePage() {
   if (session) {
     return (
       <div className="max-w-3xl mx-auto">
-        <PageHeader withUnderline={true}>Profile</PageHeader>
+        <PageHeader variant="underlined">Profile</PageHeader>
         <SettingsForm user={session.user} />
       </div>
     );

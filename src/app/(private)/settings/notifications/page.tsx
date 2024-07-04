@@ -7,7 +7,7 @@ export default async function NotificationsAccountPage() {
   if (session) {
     return (
       <div className="max-w-3xl mx-auto py-10 px-4 sm:px-6 lg:py-12 lg:px-8">
-        <PageHeader withUnderline={true}>Notifications</PageHeader>
+        <PageHeader variant="underlined">Notifications</PageHeader>
       </div>
     );
   }
